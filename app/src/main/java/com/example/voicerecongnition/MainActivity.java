@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -21,7 +20,6 @@ import com.microsoft.cognitiveservices.speech.SpeechRecognitionResult;
 import com.microsoft.cognitiveservices.speech.SpeechRecognizer;
 import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
 
-import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -29,7 +27,7 @@ import java.util.concurrent.Future;
 public class MainActivity extends AppCompatActivity {
 
     // Replace below with your own subscription key
-    private static final String SpeechSubscriptionKey = "putYourKeyHere";
+    private static final String SpeechSubscriptionKey = "yourKeyHere";
     // Replace below with your own service region (e.g., "westus").
     private static final String SpeechRegion = "centralindia";
 
@@ -55,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         setupPermissions();
 
         // if config is not get succeeded, don't set the listener.
-        if(!setupConfig()) return;
+        if (!setupConfig()) return;
 
         btnSpeak.setOnClickListener(view -> {
             final String logTag = "VoiceProcessDemo";
@@ -134,12 +132,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setRecognizedText(final String s) {
-        if(s==null) return;
-        if(s.toLowerCase(Locale.ROOT).equals("recharge")){
+        if (s == null) return;
+        // Process your text here
 
-        }else if(s.contains("charge")){
 
-        }
         AppendTextLine(s);
     }
 
